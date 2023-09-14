@@ -8,11 +8,11 @@ Assignment repository
 print("Nama: Adam Mahendra")
 print("NRP: 5009211069")
 ```
-![A](A.png)
+![A](img/A.png)
 
 ### B. Result and Script on Spyder
 Python script: [here](https://github.com/AdamM1-36/tugas-sinyal/blob/main/B.py)
-![B](B.png)
+![B](img/B.png)
 
 ### C. Last Commit Logs
-![C](C.png)
+![C](img/C.png)

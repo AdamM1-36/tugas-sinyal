@@ -11,23 +11,23 @@ def fft(x):
     odd = fft(x[1::2])
     # The second term in FFT equation (e^(-2j*pi*k/N) * odd part)
     q = [exp(-2j * pi * k / N) * odd[k] for k in range(N//2)]
-
+    # The first term in FFT equation (even part)
     return \
         [ (even[k] + q[k]) for k in range(N//2)] + \
         [ (even[k] - q[k]) for k in range(N//2)]
 
 # Define signal parameters
-A = 2
+A = 1
 def signal1(t, A):
     return 1 if -A/2 < t < A/2 else 0
 def signal2(t, A):
-    return 1 if -A < t < A else 0
+    return 1 if -A < t <    A else 0
 def signal3(t, A):
     return 1 if -3*A < t < 3*A else 0
 
 # Define plot parameters: n mus be the power of 2 because FFT algorithm using divide and conquer
 t_interval = 7 * A
-n = 512
+n = 256
 
 # Generate time interval from -t_interval/2 to t_interval/2
 t = [i * t_interval / n for i in range(-n//2, n//2)]

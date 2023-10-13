@@ -1,4 +1,4 @@
-![A](FFT/Referensi.png)
+![A](Referensi.png)
 
 ## FFT-1D
 Menggunakan persamaan di atas, dituliskan dalam bentuk fungsi rekursif

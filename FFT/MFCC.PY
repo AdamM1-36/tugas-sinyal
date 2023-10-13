@@ -27,20 +27,24 @@ def fft(x):
         return x
     even = fft(x[0::2])
     odd = fft(x[1::2])
-    factor = [np.exp(-2j * np.pi * k / N) * odd_k for k, odd_k in enumerate(odd)]
-    return [even_k + twiddle_k for even_k, twiddle_k in zip(even, factor)] + \
-           [even_k - twiddle_k for even_k, twiddle_k in zip(even, factor)]
+    q = [np.exp(-2j * np.pi * k / N) * odd_k for k, odd_k in enumerate(odd)]
+    return \
+        [ (even[k] + q[k]) for k in range(N//2)] + \
+        [ (even[k] - q[k]) for k in range(N//2)]
 
+# fungsi ifft
 def ifft(x):
     N = len(x)
     if N <= 1:
         return x
     even = ifft(x[0::2])
     odd = ifft(x[1::2])
-    factor = [np.exp(2j * np.pi * k / N) * odd_k for k, odd_k in enumerate(odd)]
-    return [even_k + twiddle_k for even_k, twiddle_k in zip(even, factor)] + \
-           [even_k - twiddle_k for even_k, twiddle_k in zip(even, factor)]
+    q = [np.exp(2j * np.pi * k / N) * odd_k for k, odd_k in enumerate(odd)]
+    return \
+        [ (even[k] + q[k]) for k in range(N//2)] + \
+        [ (even[k] - q[k]) for k in range(N//2)]
 
+# fungsi fft 2 dimensi
 def fft2d(matrix):
     rows, cols = len(matrix), len(matrix[0])
 
@@ -54,6 +58,7 @@ def fft2d(matrix):
             matrix[i][j] = col[i]
     return matrix
 
+# fungsi ifft 2 dimensi
 def ifft2d(matrix):
     rows, cols = len(matrix), len(matrix[0])
 
@@ -67,6 +72,7 @@ def ifft2d(matrix):
             matrix[i][j] = col[i]
     return matrix
 
+# fungsi fmcc
 def fmcc(matrix):
     fft_matrix = fft2d(matrix)
     log_spectrum = np.log(np.abs(fft_matrix) ** 2 + 1e-10)

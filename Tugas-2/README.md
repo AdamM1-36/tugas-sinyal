@@ -1,1 +1,1 @@
-![KONV](tugas_konvolusi)
+![KONV](tugas_konvolusi.png)

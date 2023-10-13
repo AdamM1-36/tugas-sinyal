@@ -1,0 +1,1 @@
+![KONV](tugas_konvolusi)

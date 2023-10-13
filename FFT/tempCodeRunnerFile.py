@@ -1,2 +1,1 @@
-
-# print the updated array
+Reds
